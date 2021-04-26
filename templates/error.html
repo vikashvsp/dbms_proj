@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}
+    Error!
+{% endblock %}
+{% block body %}
+    <h1 style="color:red">Authentication Failed!</h1>
+    <div class="errimg">
+        <img src="/static/images/error.png">
+    </div>
+    <h4 style="text-align:center;">{{message}}</h4>
+{% endblock %}

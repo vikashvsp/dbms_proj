@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+    AaroGyaसेवक|Admin
+{% endblock %}
+{% block body %}
+    <h1>Hi Admin!</h1>
+    <form>
+        <div class="container">
+            <h2>Cases updation</h2>
+            <hr>  
+            <label>
+                Select State:
+            </label>
+            <select name="s_id">  
+                {% for case in cases %}
+                <option value="{{ case.sid }}">{{ case.sname }}</option>   
+                {% endfor %}  
+            </select>
+            <br>   
+            <label> Total active case found today: </label>   
+            <input type="text" name="ta" placeholder="Active case found today" size="15" required /><br>
+            <label> Total deaths today: </label>   
+            <input type="text" name="td" placeholder= "Total Deaths" size="15" required />   
+            <label> Total recovered: </label>    
+            <input type="text" name="tr" placeholder="Total recovered" size="15"required />
+            <button type="submit" class="registerbtn">Update</button>
+        </div>
+    </form>
+{% endblock %}

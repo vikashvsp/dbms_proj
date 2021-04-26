@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+    {% block title %}
+      Services
+    {% endblock %}
+    {% block body %}
+        <h1>WELCOME TO OUR SERVICES</h1>
+        <form action="{{ url_for('register') }}" method="post">  
+          <div class="container">  
+            <center>  <h1>Registeration Form</h1> </center>
+            <hr>  
+              <label> Aadhar number </label>   
+              <input type="text" name="adhno" placeholder="Aadhar number" size="15" required /><br>
+              <label> Firstname </label>   
+              <input type="text" name="firstname" placeholder= "Firstname" size="15" required />   
+              <label> Lastname: </label>    
+              <input type="text" name="lastname" placeholder="Lastname" size="15"required />
+              <label> Age: </label>    
+              <input type="text" name="age" placeholder="Age" size="15"required />   
+              <div>  
+              <label>   
+              State :  
+              </label>
+              <select name="s_name">  
+                {% for case in cases %}
+                <option value="{{ case.sname }}">{{ case.sname }}</option>   
+                {% endfor %}  
+              </select>  
+            </div>
+            <label> City </label>   
+              <input type="text" name="city" placeholder= "City" size="15" required />  
+            <div>  
+            <label>   
+            Gender :  
+            </label><br>  
+            <input type="radio" value="Male" name="gender" checked > Male   
+            <input type="radio" value="Female" name="gender"> Female   
+            <input type="radio" value="Other" name="gender"> Other  
+              
+            </div>   
+            Address :  
+            <textarea cols="80" rows="5" placeholder="Current Address" name="address" required>  
+            </textarea>
+            <label> Pincode </label>   
+              <input type="text" name="pncd" placeholder= Pincode size="15" required /><br>
+              <label>Is your test report for corona positive?</label>
+              <input type="text" name="tested" placeholder= "Enter Y or N" size="15" required />
+              <label> Is your condition critical?</label>
+              <input type="text" name="critical" placeholder= "Enter Y or N" size="15" required />  
+              <button type="submit" class="registerbtn">Register</button>  
+        </div>
+      </form>  
+    {% endblock %}

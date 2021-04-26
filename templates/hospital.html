@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}
+    Hosptial | {{ hospital.hid }}
+{% endblock %}
+{% block body %}
+    <h1>{{ hospital.hname }}</h1>
+    <hr>
+    <h2>Details:</h2>
+    <p>Address: {{ hospital.address }}</p>
+    <p>District: {{ hospital.district }}</p>
+    <p>State: {{ hospital.state }}</p>
+    <p>Total beds: {{ hospital.capacity }}</p>
+    <p>Beds available: {{ hospital.vacant }}</p>
+    <a href="#patient_section">Click here to check patients!</a>
+    <div id="patient_section">
+        <ul>
+            {% for patient in patients %}
+                <li>{{ patient.adhno }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

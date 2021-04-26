@@ -1,0 +1,36 @@
+{% extends "layout.html"  %}
+{% block title %}
+    QuarantineCenters
+{% endblock %}
+{% block heading %}
+    Hi {{ fname }}! Registration Successful!!!
+{% endblock %}
+{% block body %}
+    <p>Online booking facilty is not available for quarantine centers.Kindly go and book it physically at the respective center!</p>
+    <table id="customers">
+        <thead>
+          <tr>
+            <th>Sno</th>
+            <th>Name</th>
+            <th>Available Beds</th>
+            <th>District</th>
+            <th>State</th>
+            <th>Address</th>
+            <th>Total Beds</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        {% for center in centers %}
+        <tr>
+          <td>{{center.qid}}</td>
+          <td>{{center.qname}}</td>
+          <td>{{center.vacant}}</td>
+          <td>{{center.district}}</td>
+          <td>{{center.state}}</td>
+          <td>{{center.address}}</td>
+          <td>{{center.mxcapacity}}</td>
+          <td>{{center.type}}</td>
+        </tr>
+        {% endfor %}
+      </table>  
+    {% endblock %}

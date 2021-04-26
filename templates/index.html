@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+    {% block title %}
+      AaroGyaसेवक|Home
+    {% endblock %}
+  {% block body %}
+      <h1>COVID19<span style="color: blue;">INDIA</span></h1>
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Sno</th>
+            <th>State/UT</th>
+            <th>Active Cases</th>
+            <th>Recovered</th>
+            <th>Deceased</th>
+            <th>Total Cases</th>
+          </tr>
+        </thead>
+        {% for case in cases %}
+        <tr>
+          <td>{{case.sid}}</td>
+          <td>{{case.sname}}</td>
+          <td>{{case.active}}</td>
+          <td>{{case.recovered}}</td>
+          <td>{{case.deaths}}</td>
+          <td>{{case.total}}</td>
+        </tr>
+        {% endfor %}
+      </table>  
+    {% endblock %}

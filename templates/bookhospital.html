@@ -1,0 +1,67 @@
+{% extends "layout.html"  %}
+{% block title %}
+    Registration
+{% endblock %}
+{% block heading %}
+    Hi {{ fname }}! Registration Successful!!!
+{% endblock %}
+
+{% block body %}
+     <h3>Here is the list of hospitals in your area.</h3>
+     <table id="customers">
+        <thead>
+          <tr>
+            <th>Sno</th>
+            <th>Hospital Name</th>
+            <th>Available Beds</th>
+            <th>District</th>
+            <th>State</th>
+            <th>Address</th>
+            <th>Total Beds</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        {% for hospital in hospitals %}
+        <tr>
+          <td>{{hospital.hid}}</td>
+          <td>{{hospital.hname}}</td>
+          <td>{{hospital.vacant}}</td>
+          <td>{{hospital.district}}</td>
+          <td>{{hospital.state}}</td>
+          <td>{{hospital.address}}</td>
+          <td>{{hospital.capacity}}</td>
+          <td>{{hospital.type}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <h4>You can book your hospital here!</h4>
+      <div class="container">
+      <form action="{{ url_for('book') }}" method="post">
+        <label>   
+          Hospitals :  
+        </label>
+        <select name="h_id">  
+          {% for hospital in hospitals %}
+          <option value="{{ hospital.hid }}">{{ hospital.hname }}</option>   
+          {% endfor %} 
+          <br>
+          </select>
+          <label>
+            Problem related:
+          </label>
+          <select name="prb">
+            <option value="Eye">Eye</option>
+            <option value="Nose">Nose</option>
+            <option value="Mouth">Mouth</option>
+            <option value="Head">Head</option>
+            <option value="Stomach">Stomach</option>
+            <option value="Neural">Neural</option>
+            <option value="Fracture">Fracture</option>
+          </select>
+          <br>
+          <label> Aadhar number </label>   
+          <input type="text" name="adhno" placeholder="aadhar no." size="15" required />
+          <button type="submit" class="registerbtn">Book!</button>
+      </form>
+      </div>
+{% endblock %}
